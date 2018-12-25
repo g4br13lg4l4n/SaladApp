@@ -15,7 +15,8 @@ class Welcome  extends Component{
           >
           <Button
               style={stylesGeneral.buttonPrimary}
-              title="LOGIN" color="#FF8C2B"
+              title="LOGIN" color="#FF8C2B" 
+              onPress={() => {this.props.navigation.navigate('Login')}}
             />
           </TouchableOpacity>
 
@@ -25,6 +26,7 @@ class Welcome  extends Component{
           >
             <Button
               title="REGISTRAR" color="#FF6322"
+              onPress={()=> { alert('hola') }}
             />
           </TouchableOpacity>
         </View>

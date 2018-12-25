@@ -4,10 +4,7 @@ import {Styles} from './styles'
 import {stylesGeneral} from '../StyleGeneral/styles'
 
 class Login extends Component {
-  
-  render(){
-    console.log(stylesGeneral.buttonPrimary);
-    
+  render() {
     return (
       <View style={stylesGeneral.background}>
         <Text style={Styles.title}>
@@ -25,7 +22,8 @@ class Login extends Component {
           style={stylesGeneral.buttonPrimary}  
         >  
           <Button 
-          title="ENTRAR" color="#FF8C2B"/>
+          title="ENTRAR" color="#FF8C2B"
+          onPress={()=> { alert('hola') }}/>
         </TouchableOpacity>
       </View>
     )
