@@ -1,11 +1,25 @@
 import {View, Button, TextInput, Text, TouchableOpacity, Platform} from 'react-native'
 import {stylesGeneral} from '../StyleGeneral/styles'
+import firebase from 'react-native-firebase'
 import React, {Component} from 'react'
 import {Styles} from './styles'
 const ios = Platform.OS === 'ios'
 
 class Login extends Component {
 
+  constructor(props){
+    super(props)
+    this.state = {
+      initialView: null
+    }
+  }
+/*
+  getInitialView(){
+    firebase.auth().onAuthStateChanged((user) => {
+      console.log(user)
+    })
+  }
+*/
   static navigationOptions = ios ? {
     title: 'LOGIN',
     headerStyle: {
