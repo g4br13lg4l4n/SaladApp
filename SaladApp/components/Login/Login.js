@@ -1,7 +1,7 @@
-import React, {Component} from 'react'
 import {View, Button, TextInput, Text, TouchableOpacity, Platform} from 'react-native'
-import {Styles} from './styles'
 import {stylesGeneral} from '../StyleGeneral/styles'
+import React, {Component} from 'react'
+import {Styles} from './styles'
 const ios = Platform.OS === 'ios'
 
 class Login extends Component {
