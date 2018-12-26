@@ -3,7 +3,11 @@ import { View, Button, Text, TouchableOpacity} from 'react-native'
 import Styles from './styles' 
 import {stylesGeneral} from '../StyleGeneral/styles'
 
-class Welcome  extends Component{
+class Welcome  extends Component {
+
+  static navigationOptions = {
+    headerMode: 'none'
+  }
 
   render() {
     return (
@@ -26,7 +30,7 @@ class Welcome  extends Component{
           >
             <Button
               title="REGISTRAR" color="#FF6322"
-              onPress={()=> { alert('hola') }}
+              onPress={() => {this.props.navigation.navigate('Signup')}}
             />
           </TouchableOpacity>
         </View>
