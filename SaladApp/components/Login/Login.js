@@ -13,13 +13,13 @@ class Login extends Component {
       initialView: null
     }
   }
-/*
+
   getInitialView(){
     firebase.auth().onAuthStateChanged((user) => {
       console.log(user)
     })
   }
-*/
+
   static navigationOptions = ios ? {
     title: 'LOGIN',
     headerStyle: {
