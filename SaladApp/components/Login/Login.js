@@ -49,7 +49,7 @@ class Login extends Component {
         >  
           <Button 
           title="ENTRAR" color="#FF8C2B"
-          onPress={()=> { this.props.navigation.navigate('Home') }}/>
+          onPress={()=> { this.login() }}/>
         </TouchableOpacity>
       </View>
     )

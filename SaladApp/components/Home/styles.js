@@ -8,14 +8,13 @@ const Styles = StyleSheet.create({
   },
   imgSalad: {
     backgroundColor: '#ccc',
-    flex: 2,
     width: '100%',
-    height: '100%',
     justifyContent: 'center',
   },
-  body: {
-    flex: 6,
+  bodyScroll: {
+    flex: 10,
     backgroundColor: '#F5F5F5',
+    height: '120%',
   },
   textp: {
     color: '#333333',

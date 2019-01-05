@@ -1,4 +1,4 @@
-import {View, Text, TouchableHighlight, Image} from 'react-native'
+import {View, Text, TouchableHighlight, Image, ScrollView} from 'react-native'
 import React, {Component} from 'react'
 import {Styles} from './styles'
 
@@ -14,7 +14,7 @@ class Home extends Component {
         <Image style={Styles.imgSalad}
           source={require('../../imgs/salad.png')}
         />
-        <View style={Styles.body}>
+        <ScrollView style={Styles.bodyScroll}>
           <Text style={Styles.textp}>
             Construye tu ensalada con la cantidad de ingredientes que desees
           </Text>
@@ -43,7 +43,7 @@ class Home extends Component {
             </View>
           </TouchableHighlight>
 
-        </View>
+        </ScrollView>
       </View>  
     )
   }
