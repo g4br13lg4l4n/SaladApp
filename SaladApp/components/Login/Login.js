@@ -15,19 +15,7 @@ class Login extends Component {
   }
 
   componentDidMount() {
-    firebase.auth().createUserWithEmailAndPassword('gabriel.galan92@gmail.com', '123456789')
-      .then((user, data) => {
-        alert(user)
-        console.warn(user)
-        console.warn(data)
-/*
-        this.setState({
-          isAuthenticated: true,
-        });
-*/
-      }).catch(err => {
-        console.warn(err)
-      });
+    
   }
 
   static navigationOptions = ios ? {
