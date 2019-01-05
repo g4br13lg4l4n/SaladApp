@@ -7,19 +7,25 @@ const ios = Platform.OS === 'ios'
 
 class Login extends Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      isAuthenticated: false,
+      email: '',
+      password: ''
     };
   }
 
+  login() {
+    firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
+    .then(res => {
+      console.warn('respuesta ---->', res)
+    })
+    .catch(err => {
+      console.warn('error --->', err)
+    })
+  }
+
   render() {
-/*
-    if (!this.state.isAuthenticated) {
-      return null;
-    }
-*/
     return (
       <View style={stylesGeneral.background}>
         <Text style={Styles.title}>
@@ -27,10 +33,12 @@ class Login extends Component {
         </Text>
         <TextInput 
           style={stylesGeneral.inputText}
+          onChangeText={(email) => this.setState({email})}
           placeholder="Email"
         />
         <TextInput
           style={stylesGeneral.inputText}
+          onChangeText={(password) => this.setState({password})}
           placeholder="Password"
           />
         <TouchableOpacity
@@ -38,7 +46,7 @@ class Login extends Component {
         >  
           <Button 
           title="ENTRAR" color="#FF8C2B"
-          onPress={()=> { alert('hola') }}/>
+          onPress={()=> { this.login() }}/>
         </TouchableOpacity>
       </View>
     )
