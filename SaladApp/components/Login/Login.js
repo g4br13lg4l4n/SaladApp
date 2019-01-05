@@ -15,11 +15,18 @@ class Login extends Component {
   }
 
   componentDidMount() {
-    firebase.auth().signInAnonymously()
-      .then(() => {
+    firebase.auth().createUserWithEmailAndPassword('gabriel.galan92@gmail.com', '123456789')
+      .then((user, data) => {
+        alert(user)
+        console.warn(user)
+        console.warn(data)
+/*
         this.setState({
           isAuthenticated: true,
         });
+*/
+      }).catch(err => {
+        console.warn(err)
       });
   }
 
@@ -35,10 +42,11 @@ class Login extends Component {
   } : '';
 
   render() {
+/*
     if (!this.state.isAuthenticated) {
       return null;
     }
-    
+*/
     return (
       <View style={stylesGeneral.background}>
         <Text style={Styles.title}>
