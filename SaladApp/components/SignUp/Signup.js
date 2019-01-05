@@ -21,15 +21,24 @@ class Signup extends Component {
 
   register() {
     firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
-      .then((user, data) => {
+      .then((res) => {
+        const data = {
+          email: this.state.email,
+          phone: this.state.phone, 
+          name: this.state.name,
+        }
+        firebase.database().ref('users/' + res.user.uid).set(data, 
+          err => {
+            if(err) {
+              console.warn('error guarda --->', err)
+            }else { 
+              console.warn('guardado')
+            }
+          })
 
-        this.state.phone, this.state.name
-        
-        console.warn('user --> ', user)
-        console.warn('data --> ', data)
       }).catch(err => {
         console.warn(err)
-      });
+      })
   }
 
   render() {

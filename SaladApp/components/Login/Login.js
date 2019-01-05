@@ -14,21 +14,6 @@ class Login extends Component {
     };
   }
 
-  componentDidMount() {
-    
-  }
-
-  static navigationOptions = ios ? {
-    title: 'LOGIN',
-    headerStyle: {
-      backgroundColor: '#CCCCCC',
-    },
-    headerTintColor: '#fff',
-    headerTitleStyle: {
-      fontWeight: 'bold',
-    }
-  } : '';
-
   render() {
 /*
     if (!this.state.isAuthenticated) {
@@ -58,6 +43,18 @@ class Login extends Component {
       </View>
     )
   }
+
+  static navigationOptions = ios ? {
+    title: 'LOGIN',
+    headerStyle: {
+      backgroundColor: '#CCCCCC',
+    },
+    headerTintColor: '#fff',
+    headerTitleStyle: {
+      fontWeight: 'bold',
+    }
+  } : '';
+
 }
 
 module.exports = Login 
