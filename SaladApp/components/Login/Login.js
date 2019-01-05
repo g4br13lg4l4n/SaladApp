@@ -16,13 +16,16 @@ class Login extends Component {
   }
 
   login() {
-    firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
-    .then(res => {
-      console.warn('respuesta ---->', res)
-    })
-    .catch(err => {
-      console.warn('error --->', err)
-    })
+    if(!this.state.email == '' && !this.state.password == ''){
+      firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
+      .then(res => {
+        console.warn('respuesta ---->', res)
+        this.props.navigation.push('Home')
+      })
+      .catch(err => {
+        console.warn('error --->', err)
+      })
+    }
   }
 
   render() {
@@ -46,7 +49,7 @@ class Login extends Component {
         >  
           <Button 
           title="ENTRAR" color="#FF8C2B"
-          onPress={()=> { this.login() }}/>
+          onPress={()=> { this.props.navigation.navigate('Home') }}/>
         </TouchableOpacity>
       </View>
     )

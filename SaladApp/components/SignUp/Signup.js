@@ -20,25 +20,27 @@ class Signup extends Component {
   }
 
   register() {
-    firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
-      .then((res) => {
-        const data = {
-          email: this.state.email,
-          phone: this.state.phone, 
-          name: this.state.name,
-        }
-        firebase.database().ref('users/' + res.user.uid).set(data, 
-          err => {
-            if(err) {
-              console.warn('error guarda --->', err)
-            }else { 
-              console.warn('guardado')
-            }
-          })
+    if(!this.state.email == '' && !this.state.password == '' && !this.state.phone == '' && !this.state.name == '') {
+      firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
+        .then((res) => {
+          const data = {
+            email: this.state.email,
+            phone: this.state.phone, 
+            name: this.state.name,
+          }
+          firebase.database().ref('users/' + res.user.uid).set(data, 
+            err => {
+              if(err) {
+                console.warn('error guarda --->', err)
+              }else { 
+                console.warn('guardado')
+              }
+            })
 
-      }).catch(err => {
-        console.warn(err)
-      })
+        }).catch(err => {
+          console.warn(err)
+        })
+    }
   }
 
   render() {

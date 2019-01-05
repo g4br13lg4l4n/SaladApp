@@ -10,6 +10,7 @@ const stylesGeneral = StyleSheet.create({
     borderColor: '#E0E0E0',
     borderWidth: 1,
     width: '80%',
+    fontSize: 16,
     paddingLeft: 12,
     marginTop: 10,
     marginRight: 'auto',
