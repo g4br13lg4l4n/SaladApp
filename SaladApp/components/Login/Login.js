@@ -7,17 +7,20 @@ const ios = Platform.OS === 'ios'
 
 class Login extends Component {
 
-  constructor(props){
-    super(props)
+  constructor() {
+    super();
     this.state = {
-      initialView: null
-    }
+      isAuthenticated: false,
+    };
   }
 
-  getInitialView(){
-    firebase.auth().onAuthStateChanged((user) => {
-      console.warn()(user)
-    })
+  componentDidMount() {
+    firebase.auth().signInAnonymously()
+      .then(() => {
+        this.setState({
+          isAuthenticated: true,
+        });
+      });
   }
 
   static navigationOptions = ios ? {
@@ -32,6 +35,10 @@ class Login extends Component {
   } : '';
 
   render() {
+    if (!this.state.isAuthenticated) {
+      return null;
+    }
+    
     return (
       <View style={stylesGeneral.background}>
         <Text style={Styles.title}>
