@@ -1,14 +1,20 @@
-import { createBottomTabNavigator, createStackNavigator, StackNavigator, TabNavigator } from "react-navigation"
-import Home from '../Home/Home'
+import { createBottomTabNavigator} from "react-navigation"
+import Icon from 'react-native-vector-icons/FontAwesome'
+import Profile from '../Profile/Profile'
+import React, {Component} from 'react'
 import Select from '../Select/Select'
 import Check from '../Check/Check'
-import Profile from '../Profile/Profile'
+import Home from '../Home/Home'
+
 
 const TabNavigation = createBottomTabNavigator({
   Home: {
     screen: Home,
     navigationOptions: {  
-      tabBarLabel: 'Feed'
+      tabBarLabel: 'Feed',
+      tabBarIcon: ({ }) => <Icon.Button name="facebook" backgroundColor="#3b5998" onPress={this.loginWithFacebook}>
+      Login with Facebook
+    </Icon.Button>
     }
   },
   Select: {
