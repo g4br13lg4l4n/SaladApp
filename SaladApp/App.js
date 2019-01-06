@@ -4,7 +4,6 @@ import { Platform } from 'react-native'
 import Login from './components/Login/Login'
 import Welcome from './components/Welcome/welcome'
 import Signup from './components/SignUp/Signup'
-import Home from './components/Home/Home'
 import TabNavigation from './components/TabNavigation/TabNavigation'
 const ios = Platform.OS === 'ios' 
 
