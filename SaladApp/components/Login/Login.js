@@ -20,7 +20,7 @@ class Login extends Component {
       firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
       .then(res => {
         console.warn('respuesta ---->', res)
-        this.props.navigation.push('Home')
+        this.props.navigation.push('TabNavigation')
       })
       .catch(err => {
         console.warn('error --->', err)

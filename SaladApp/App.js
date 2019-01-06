@@ -31,7 +31,7 @@ const AppNavigator = createStackNavigator({
   headerMode: 'none',
 },
 {
-  initialRouteName: 'Home',
+  initialRouteName: 'Welcome',
 })
 
 module.exports = createAppContainer(AppNavigator)
