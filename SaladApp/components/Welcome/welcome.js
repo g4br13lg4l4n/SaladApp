@@ -1,12 +1,21 @@
-import React, {Component} from 'react' 
 import { View, Button, Text, TouchableOpacity} from 'react-native'
-import Styles from './styles' 
 import {stylesGeneral} from '../StyleGeneral/styles'
+import firebase from 'react-native-firebase'
+import React, {Component} from 'react' 
+import Styles from './styles' 
 
 class Welcome  extends Component {
 
   static navigationOptions = {
     headerMode: 'none'
+  }
+
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.props.navigation.navigate('Home')
+      }
+    })
   }
 
   render() {

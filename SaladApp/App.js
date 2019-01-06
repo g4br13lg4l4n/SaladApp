@@ -1,13 +1,14 @@
-import React, {Component} from 'react'
 import { createStackNavigator, createAppContainer } from "react-navigation"
-import { Platform } from 'react-native'
-import Login from './components/Login/Login'
+import TabNavigation from './components/TabNavigation/TabNavigation'
 import Welcome from './components/Welcome/welcome'
 import Signup from './components/SignUp/Signup'
-import TabNavigation from './components/TabNavigation/TabNavigation'
+import Login from './components/Login/Login'
+import { Platform } from 'react-native'
+import React, {Component} from 'react'
+
 const ios = Platform.OS === 'ios' 
 
-class App extends Component{
+class App extends Component {
   render() {
     return AppNavigator
   }
