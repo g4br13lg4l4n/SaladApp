@@ -19,11 +19,11 @@ class Login extends Component {
     if(!this.state.email == '' && !this.state.password == ''){
       firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
       .then(res => {
-        console.warn('respuesta ---->', res)
+        //console.warn('respuesta ---->', res)
         this.props.navigation.push('TabNavigation')
       })
       .catch(err => {
-        console.warn('error --->', err)
+        //console.warn('error --->', err)
       })
     }
   }
@@ -44,12 +44,10 @@ class Login extends Component {
           onChangeText={(password) => this.setState({password})}
           placeholder="Password"
           />
-        <TouchableOpacity
-          style={stylesGeneral.buttonPrimary}  
-        >  
-          <Button 
-          title="ENTRAR" color="#FF8C2B"
-          onPress={()=> { this.login() }}/>
+        <TouchableOpacity 
+          onPress={()=> { this.login() }}
+          style={stylesGeneral.button}>
+          <Text style={stylesGeneral.textButton}> ENTRAR </Text>
         </TouchableOpacity>
       </View>
     )

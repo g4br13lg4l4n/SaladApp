@@ -23,6 +23,21 @@ const stylesGeneral = StyleSheet.create({
     marginRight: 'auto',
     marginBottom: 10,
     marginLeft: 'auto',
+  },
+  button: {
+    margin: '10%',
+    backgroundColor: '#FF8C2B',
+    borderRadius: 40,
+    borderColor: '#FF6322',
+    borderWidth: 1,
+    alignItems: 'center',
+    paddingTop: 12,
+    paddingBottom: 12
+  },
+  textButton: {
+    color: '#FFFFFF',
+    fontSize: 18,
+    letterSpacing: 1
   }
 })
 

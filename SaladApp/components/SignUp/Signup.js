@@ -69,12 +69,10 @@ class Signup extends Component {
           onChangeText={(password) => this.setState({password})}
           placeholder="Password"
           />
-        <TouchableOpacity
-          style={stylesGeneral.buttonPrimary}  
-        >  
-          <Button 
-          title="CREAR CUENTA" color="#FF8C2B"
-          onPress={()=> { this.register() }}/>
+        <TouchableOpacity 
+          onPress={()=> { this.register() }}
+          style={stylesGeneral.button}>
+          <Text style={stylesGeneral.textButton}> CREAR CUENTA </Text>
         </TouchableOpacity>
       </View>
     )

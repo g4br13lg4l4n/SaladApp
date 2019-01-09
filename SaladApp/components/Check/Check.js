@@ -1,4 +1,4 @@
-import { View, Button, Text, TouchableOpacity, TextInput, ScrollView, StyleSheet} from 'react-native'
+import { View, Button, Text, TouchableOpacity, TextInput, ScrollView} from 'react-native'
 import {stylesGeneral} from '../StyleGeneral/styles'
 import React, {Component} from 'react'
 import Styles from './styles'
@@ -7,7 +7,7 @@ class Check extends Component {
   render() {
     return (
       <ScrollView style={stylesGeneral.background}>    
-        <Text style={Styles.title}> PERFIL </Text>  
+        <Text style={Styles.title}> CHECK </Text>  
         <Text style={Styles.text}> cantidad a pagar: </Text> 
         <View style={Styles.margin}>
           <TextInput 
@@ -60,6 +60,10 @@ class Check extends Component {
             placeholder="Referencia del domicilio "
           />
         </View>
+        <TouchableOpacity 
+          style={stylesGeneral.button}>
+          <Text style={stylesGeneral.textButton}> CREAR PEDIDO </Text>
+        </TouchableOpacity>
       </ScrollView>
     )
   }

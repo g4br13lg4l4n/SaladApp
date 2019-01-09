@@ -19,7 +19,7 @@ const Styles = StyleSheet.create({
     fontSize: 14
   },
   maginToHead: {
-    marginTop: '30%'
+    marginTop: '15%'
   }
 })
 

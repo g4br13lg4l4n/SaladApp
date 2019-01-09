@@ -23,25 +23,21 @@ class Welcome  extends Component {
       <View style={stylesGeneral.background}>
         <Text style={Styles.Title}> SALAD </Text>
         <View style={Styles.maginToHead}>
-          <TouchableOpacity
-            style={stylesGeneral.buttonPrimary}  
-          >
-          <Button
-              style={stylesGeneral.buttonPrimary}
-              title="LOGIN" color="#FF8C2B" 
-              onPress={() => {this.props.navigation.navigate('Login')}}
-            />
+
+          <TouchableOpacity 
+            onPress={() => {this.props.navigation.navigate('Login')}}
+            style={stylesGeneral.button}>
+            <Text style={stylesGeneral.textButton}> LOGIN </Text>
           </TouchableOpacity>
 
           <Text style={Styles.withoutCount}>¿No tienes una cuenta?</Text>
-          <TouchableOpacity
-            style={stylesGeneral.buttonPrimary}  
-          >
-            <Button
-              title="REGISTRAR" color="#FF6322"
-              onPress={() => {this.props.navigation.navigate('Signup')}}
-            />
+
+          <TouchableOpacity 
+            onPress={() => {this.props.navigation.navigate('Signup')}}
+            style={stylesGeneral.button}>
+            <Text style={stylesGeneral.textButton}> REGISTRAR </Text>
           </TouchableOpacity>
+
         </View>
       </View>
     )
