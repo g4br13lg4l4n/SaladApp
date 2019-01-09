@@ -5,7 +5,6 @@ import React, {Component} from 'react'
 import Select from '../Select/Select'
 import Check from '../Check/Check'
 import Home from '../Home/Home'
-import Styles from './styles'
 
 const TabNavigation = createBottomTabNavigator({
   Home: {
