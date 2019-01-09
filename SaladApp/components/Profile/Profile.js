@@ -6,7 +6,6 @@ import Styles from './styles'
 
 
 class Profile extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -37,15 +36,15 @@ class Profile extends Component {
         <Text style={Styles.title}> PERFIL </Text>  
         <View style={Styles.margin}>
           <Text style={Styles.text}> Usuario: </Text> 
-          <Text style={Styles.text}> {this.state.name} </Text> 
+          <Text style={Styles.textf}> {this.state.name} </Text> 
         </View>
         <View style={Styles.margin}>
           <Text style={Styles.text}> Correo: </Text> 
-          <Text style={Styles.text}> {this.state.email} </Text> 
+          <Text style={Styles.textf}> {this.state.email} </Text> 
         </View>
         <View style={Styles.margin}>
           <Text style={Styles.text}> Teléfono: </Text> 
-          <Text style={Styles.text}> {this.state.phone} </Text> 
+          <Text style={Styles.textf}> {this.state.phone} </Text> 
         </View>
       </View>
     )

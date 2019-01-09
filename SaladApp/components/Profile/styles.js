@@ -10,7 +10,12 @@ const Styles = StyleSheet.create({
   },
   text: {
     marginLeft: '10%',
-    fontSize: 18,
+    fontSize: 20,
+    color: '#333333',
+  },
+  textf: {
+    marginLeft: '10%',
+    fontSize: 16,
     color: '#333333',
   },
   margin: {
