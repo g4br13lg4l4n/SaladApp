@@ -1,4 +1,5 @@
 import {View, Text, TouchableHighlight, Image, ScrollView} from 'react-native'
+import {stylesGeneral} from '../StyleGeneral/styles'
 import React, {Component} from 'react'
 import {Styles} from './styles'
 
@@ -10,7 +11,7 @@ class Home extends Component {
 
   render() {
     return (
-      <View style={Styles.background}>
+      <View style={stylesGeneral.backgroundBlue}>
         <Image style={Styles.imgSalad}
           source={require('../../imgs/salad.png')}
         />

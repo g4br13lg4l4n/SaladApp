@@ -5,7 +5,12 @@ const stylesGeneral = StyleSheet.create({
     width: '100%',
     height: '100%',
     backgroundColor: 'white'
-},
+  },
+  backgroundBlue: {
+    width: '100%',
+    height: '100%',
+    backgroundColor: '#F5F5F5'
+  },
   inputText: {
     borderColor: '#E0E0E0',
     borderWidth: 1,
