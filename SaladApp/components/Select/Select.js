@@ -80,9 +80,13 @@ class Select extends Component {
 
   UpdateCount(index) {
 
-    if(this.state.count == 1) {
+    if(this.state.count === 0) {
       this.setState(() => {
         return { countColor: 'red', full: true }
+      })
+    } else {
+      this.setState(() => {
+        return { countColor: '#333333', full: false }
       })
     }
 
