@@ -31,7 +31,7 @@ class Home extends Component {
 
           <TouchableHighlight style={Styles.contentButton} onPress={()=>{ this.option(3) }} underlayColor="white">
             <View style={Styles.button}>
-              <Text style={Styles.buttonText}>ENSALADA CON 4 INGREDIENTES</Text>
+              <Text style={Styles.buttonText}>ENSALADA CON 3 INGREDIENTES</Text>
             </View>
           </TouchableHighlight>
 
