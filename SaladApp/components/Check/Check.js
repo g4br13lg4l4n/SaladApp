@@ -143,6 +143,7 @@ doClear() {
             style={stylesGeneral.inputText}
             onChangeText={(numHome) => this.setState((state) => {{state.check.numHome = numHome}})}
             placeholder="Número de casa o departamento"
+            keyboardType= "numeric"
           />
         </View>
         <View style={Styles.margin}>
