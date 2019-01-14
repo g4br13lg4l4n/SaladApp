@@ -12,6 +12,8 @@ class Select extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      count: '',
+      first: false,
       data: [{
         category: 'VERDURA',
         name: 'Tomate',
@@ -29,15 +31,42 @@ class Select extends Component {
         img: Aguacate
       }],
     }
+    this.Count = this.Count.bind(this)
+  }
+
+  componentWillMount() {
+    console.warn('2')
+    count = this.Count()
+    this.setState({
+      count,
+      first: true
+    })
+  }
+
+  componentDidUpdate() {
+    if(this.state.first == true){
+      
+      count = this.Count()
+      console.warn(count)
+      this.state.count = count
+    } 
+  }
+
+  Count() {
+    const { navigation } = this.props
+    const count = navigation.getParam('count')
+    return count
   }
   
-  render(){
+  render() {
     return(
       <View style={stylesGeneral.backgroundBlue}>
         <ScrollView style={Styles.bodyScroll}>
           <View style={Styles.head}>
             <TouchableHighlight style={Styles.constIcon}>
-              <Icon.Button name="shopping-basket" color="#FF7A27" backgroundColor="transparent"> </Icon.Button>
+              <View>
+                <Icon.Button name="shopping-basket" color="#FF7A27" backgroundColor="transparent"><Text>{this.state.count} </Text></Icon.Button>
+              </View>
             </TouchableHighlight>
 
             <Text style={Styles.title}>Construye tu ensalada</Text> 

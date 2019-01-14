@@ -5,8 +5,17 @@ import {Styles} from './styles'
 
 class Home extends Component {
 
-  option() {
-    alert('opción')
+  constructor(props) {
+    super(props);
+    this.option = this.option.bind(this);
+  }
+
+  option(num) {
+    this.props.navigation.navigate('Select', { count: num });
+  }
+
+  componentWillUnmount(){
+    console.warn('un mount')
   }
 
   render() {
@@ -20,25 +29,25 @@ class Home extends Component {
             Construye tu ensalada con la cantidad de ingredientes que desees
           </Text>
 
-          <TouchableHighlight style={Styles.contentButton} onPress={()=>{ this.option() }} underlayColor="white">
+          <TouchableHighlight style={Styles.contentButton} onPress={()=>{ this.option(4) }} underlayColor="white">
             <View style={Styles.button}>
               <Text style={Styles.buttonText}>ENSALADA CON 4 INGREDIENTES</Text>
             </View>
           </TouchableHighlight>
 
-          <TouchableHighlight style={Styles.contentButton} onPress={()=>{ this.option() }} underlayColor="white">
+          <TouchableHighlight style={Styles.contentButton} onPress={()=>{ this.option(6) }} underlayColor="white">
             <View style={Styles.button}>
               <Text style={Styles.buttonText}>ENSALADA CON 6 INGREDIENTES</Text>
             </View>
           </TouchableHighlight>
 
-          <TouchableHighlight style={Styles.contentButton} onPress={()=>{ this.option() }} underlayColor="white">
+          <TouchableHighlight style={Styles.contentButton} onPress={()=>{ this.option(8) }} underlayColor="white">
             <View style={Styles.button}>
               <Text style={Styles.buttonText}>ENSALADA CON 8 INGREDIENTES</Text>
             </View>
           </TouchableHighlight>
 
-          <TouchableHighlight style={Styles.contentButton} onPress={()=>{ this.option() }} underlayColor="white">
+          <TouchableHighlight style={Styles.contentButton} onPress={()=>{ this.option(10) }} underlayColor="white">
             <View style={Styles.button}>
               <Text style={Styles.buttonText}>ENSALADA CON 10 INGREDIENTES</Text>
             </View>
