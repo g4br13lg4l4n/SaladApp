@@ -80,7 +80,7 @@ class Select extends Component {
 
   UpdateCount(index) {
 
-    if(this.state.count === 0) {
+    if(this.state.count - 1 == '0') {
       this.setState(() => {
         return { countColor: 'red', full: true }
       })
@@ -114,7 +114,9 @@ class Select extends Component {
   }
 
   checkout() {
-
+    if(this.state.count == 0){
+      this.props.navigation.navigate('Check', {countPay: '100'});
+    }
   }
   
   render() {

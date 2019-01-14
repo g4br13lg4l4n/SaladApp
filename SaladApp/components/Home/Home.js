@@ -29,7 +29,7 @@ class Home extends Component {
             Construye tu ensalada con la cantidad de ingredientes que desees
           </Text>
 
-          <TouchableHighlight style={Styles.contentButton} onPress={()=>{ this.option(4) }} underlayColor="white">
+          <TouchableHighlight style={Styles.contentButton} onPress={()=>{ this.option(3) }} underlayColor="white">
             <View style={Styles.button}>
               <Text style={Styles.buttonText}>ENSALADA CON 4 INGREDIENTES</Text>
             </View>
