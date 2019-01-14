@@ -13,7 +13,9 @@ class Select extends Component {
     super(props);
     this.state = {
       count: '',
+      countColor: '#333333',
       first: false,
+      full: false,
       data: [
         {
           category: 'VERDURA',
@@ -46,11 +48,20 @@ class Select extends Component {
           img: Aguacate,
           color: '#AEAEAE',
           added: false 
+        },
+        {
+          category: 'VERDURA',
+          name: 'Aguacate',
+          calorias: '200',
+          img: Aguacate,
+          color: '#AEAEAE',
+          added: false 
         }
     ],
     }
     this.Count = this.Count.bind(this)
     this.UpdateCount = this.UpdateCount.bind(this)
+    this.checkout = this.checkout.bind(this)
   }
 
   componentWillMount() {
@@ -68,15 +79,38 @@ class Select extends Component {
   }
 
   UpdateCount(index) {
-    //#AEAEAE
-    //#FF8C2B
-    console.warn(this.state.data[index].color)
-    this.setState((state) => {
-      state.data[index].color = '#FF8C2B'
-    })
-    this.setState((state) => {
-     return { count: state.count - 1 }
-    })
+
+    if(this.state.count == 1) {
+      this.setState(() => {
+        return { countColor: 'red', full: true }
+      })
+    }
+
+    if(this.state.data[index].added === false){
+      this.setState((state) => {
+        state.data[index].color = '#FF8C2B',
+        state.data[index].added = true
+      })
+    }else {
+      this.setState((state) => {
+        state.data[index].color = '#AEAEAE',
+        state.data[index].added = false
+      })
+    }
+
+    if(this.state.full === false && this.state.data[index].added === false){
+      this.setState((state) => {
+        return { count: state.count - 1 }
+      })
+    }else if(this.state.data[index].added === true){
+      this.setState((state) => {
+        return { count: state.count + 1 }
+      })
+    }
+  }
+
+  checkout() {
+
   }
   
   render() {
@@ -87,7 +121,7 @@ class Select extends Component {
             <TouchableHighlight style={Styles.constIcon}>
               <View>
                 <Icon.Button name="shopping-basket" color="#FF7A27" backgroundColor="transparent">
-                  <Text>{this.state.count} </Text>
+                  <Text style={{color:this.state.countColor}}>{this.state.count} </Text>
                 </Icon.Button>
               </View>
             </TouchableHighlight>
@@ -95,7 +129,7 @@ class Select extends Component {
             <Text style={Styles.title}>Construye tu ensalada</Text> 
 
             <TouchableHighlight style={Styles.constIconCircle}>
-              <Icon.Button name="shopping-bag" color="#FFFFFF" style={Styles.icon} size={16} backgroundColor="transparent"> </Icon.Button>
+              <Icon.Button name="shopping-bag" onPress={()=>{ this.checkout() }} color="#FFFFFF" style={Styles.icon} size={16} backgroundColor="transparent"> </Icon.Button>
             </TouchableHighlight>
           </View> 
 
@@ -110,6 +144,7 @@ class Select extends Component {
           <View style={Styles.viewScroll}>
             <FlatList
                 showsVerticalScrollIndicator={false}
+                extraData={this.state}
                 data={this.state.data}
                 renderItem={ ({item, index}) => 
               
@@ -134,7 +169,6 @@ class Select extends Component {
             keyExtractor={(index) => index.toString()}
             />  
           </View>
-
 
         </ScrollView>
       </View>
