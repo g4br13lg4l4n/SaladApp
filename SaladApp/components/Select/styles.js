@@ -2,7 +2,6 @@ import { StyleSheet } from 'react-native'
 
 const Styles = StyleSheet.create({
   bodyScroll: {
-    flex: 1,
     backgroundColor: '#F5F5F5',
     flexDirection: 'column',
   },
@@ -21,6 +20,14 @@ const Styles = StyleSheet.create({
     marginTop: '4%',
     marginBottom: '4%',
     backgroundColor: 'white'
+  },
+  viewH: {
+    marginLeft: '5%',
+    marginRight: '5%',
+    marginTop: '4%',
+    marginBottom: '4%',
+    backgroundColor: 'white',
+    height: 250
   },
   title: {
     paddingTop: 6,
@@ -57,14 +64,11 @@ const Styles = StyleSheet.create({
     justifyContent: 'center',
   },
   viewScroll: {
-    height: 800,
+    height: 900,
     marginTop: '4%',
     marginBottom: 20,
     paddingTop: 4,
     paddingBottom: 10,
-  },
-  flatList: {
-
   },
   categoryText: {
     marginTop: 10,

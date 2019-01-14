@@ -14,28 +14,46 @@ class Select extends Component {
     this.state = {
       count: '',
       first: false,
-      data: [{
-        category: 'VERDURA',
-        name: 'Tomate',
-        calorias: '50',
-        img: Tomate
-      },{
-        category: 'VERDURA',
-        name: 'Lechuga',
-        calorias: '10',
-        img: Lechuga
-      },{
-        category: 'VERDURA',
-        name: 'Aguacate',
-        calorias: '200',
-        img: Aguacate
-      }],
+      data: [
+        {
+          category: 'VERDURA',
+          name: 'Tomate',
+          calorias: '50',
+          img: Tomate,
+          color: '#AEAEAE',
+          added: false 
+        },
+        {
+          category: 'VERDURA',
+          name: 'Lechuga',
+          calorias: '10',
+          img: Lechuga,
+          color: '#AEAEAE',
+          added: false 
+        },
+        {
+          category: 'VERDURA',
+          name: 'Aguacate',
+          calorias: '200',
+          img: Aguacate,
+          color: '#AEAEAE',
+          added: false 
+        },
+        {
+          category: 'VERDURA',
+          name: 'Aguacate',
+          calorias: '200',
+          img: Aguacate,
+          color: '#AEAEAE',
+          added: false 
+        }
+    ],
     }
     this.Count = this.Count.bind(this)
+    this.UpdateCount = this.UpdateCount.bind(this)
   }
 
   componentWillMount() {
-    console.warn('2')
     count = this.Count()
     this.setState({
       count,
@@ -43,19 +61,22 @@ class Select extends Component {
     })
   }
 
-  componentDidUpdate() {
-    if(this.state.first == true){
-      
-      count = this.Count()
-      console.warn(count)
-      this.state.count = count
-    } 
-  }
-
   Count() {
     const { navigation } = this.props
     const count = navigation.getParam('count')
     return count
+  }
+
+  UpdateCount(index) {
+    //#AEAEAE
+    //#FF8C2B
+    console.warn(this.state.data[index].color)
+    this.setState((state) => {
+      state.data[index].color = '#FF8C2B'
+    })
+    this.setState((state) => {
+     return { count: state.count - 1 }
+    })
   }
   
   render() {
@@ -65,7 +86,9 @@ class Select extends Component {
           <View style={Styles.head}>
             <TouchableHighlight style={Styles.constIcon}>
               <View>
-                <Icon.Button name="shopping-basket" color="#FF7A27" backgroundColor="transparent"><Text>{this.state.count} </Text></Icon.Button>
+                <Icon.Button name="shopping-basket" color="#FF7A27" backgroundColor="transparent">
+                  <Text>{this.state.count} </Text>
+                </Icon.Button>
               </View>
             </TouchableHighlight>
 
@@ -86,11 +109,11 @@ class Select extends Component {
 
           <View style={Styles.viewScroll}>
             <FlatList
-                style={Styles.flatList}
+                showsVerticalScrollIndicator={false}
                 data={this.state.data}
-                renderItem={ ({item}) => 
+                renderItem={ ({item, index}) => 
               
-              <View style={Styles.view}>
+              <View style={Styles.viewH}>
                   <Image style={Styles.imgSalad}
                     source={item.img}
                   />
@@ -102,13 +125,13 @@ class Select extends Component {
                       <Icon.Button name="tasks" color="#BDBDBD" backgroundColor="transparent">{item.calorias}</Icon.Button>
                     </View>
                     <TouchableHighlight> 
-                      <Icon.Button name="heart" color="#BDBDBD" backgroundColor="transparent">Agregar</Icon.Button> 
+                      <Icon.Button onPress={()=>{ this.UpdateCount(index) }} name="heart" color={item.color} backgroundColor="transparent">Agregar</Icon.Button> 
                     </TouchableHighlight>
                   </View>
 
               </View>
             }
-            keyExtractor={(item, index) => index.toString()}
+            keyExtractor={(index) => index.toString()}
             />  
           </View>
 
