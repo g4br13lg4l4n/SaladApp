@@ -48,6 +48,10 @@ const Styles = StyleSheet.create({
     paddingTop: 6,
     paddingBottom: 6
   },
+  constIcon:{
+    width: 50,
+    height: 36,
+  },
   constIconCircle: {
     borderRadius: 36/2,
     width: 36,
