@@ -122,7 +122,8 @@ class Select extends Component {
   render() {
     return(
       <View style={stylesGeneral.backgroundBlue}>
-        <ScrollView style={Styles.bodyScroll}>
+        <ScrollView style={Styles.bodyScroll}
+          showsVerticalScrollIndicator={false}>
           <View style={Styles.head}>
             <TouchableHighlight style={Styles.constIcon}>
               <View>
@@ -146,36 +147,32 @@ class Select extends Component {
               <Text style={Styles.titleText}>SELECCIONA LOS INGREDIENTES DE TU ENSALADA</Text> 
           </View>
           
-
-          <View style={Styles.viewScroll}>
-            <FlatList
-                showsVerticalScrollIndicator={false}
-                extraData={this.state}
-                data={this.state.data}
-                renderItem={ ({item, index}) => 
+          <FlatList
+              showsVerticalScrollIndicator={false}
+              extraData={this.state}
+              data={this.state.data}
+              renderItem={ ({item, index}) =>
               
               <View style={Styles.viewH}>
-                  <Image style={Styles.imgSalad}
-                    source={item.img}
-                  />
-                  <Text style={Styles.categoryText}>{item.category}</Text> 
-                  <Text style={Styles.frutName}> {item.name}</Text> 
+                <Image style={Styles.imgSalad}
+                  source={item.img}
+                />
+                <Text style={Styles.categoryText}>{item.category}</Text> 
+                <Text style={Styles.frutName}> {item.name}</Text> 
 
-                  <View style={Styles.contentInfo}>
-                    <View>
-                      <Icon.Button name="tasks" color="#BDBDBD" backgroundColor="transparent">{item.calorias}</Icon.Button>
-                    </View>
-                    <TouchableHighlight> 
-                      <Icon.Button onPress={()=>{ this.UpdateCount(index) }} name="heart" color={item.color} backgroundColor="transparent">Agregar</Icon.Button> 
-                    </TouchableHighlight>
+                <View style={Styles.contentInfo}>
+                  <View>
+                    <Icon.Button name="tasks" color="#BDBDBD" backgroundColor="transparent">{item.calorias}</Icon.Button>
                   </View>
-
-              </View>
-            }
-            keyExtractor={(index) => index.toString()}
-            />  
-          </View>
-
+                  <TouchableHighlight> 
+                    <Icon.Button onPress={()=>{ this.UpdateCount(index) }} name="heart" color={item.color} backgroundColor="transparent">Agregar</Icon.Button> 
+                  </TouchableHighlight>
+                </View>
+            </View>
+          }
+          keyExtractor={(index) => index.toString()}
+          />  
+          
         </ScrollView>
       </View>
     )

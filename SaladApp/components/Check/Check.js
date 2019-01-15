@@ -83,7 +83,8 @@ doClear() {
 
   render() {
     return (
-      <ScrollView style={stylesGeneral.background}>    
+      <ScrollView style={stylesGeneral.background}
+        showsVerticalScrollIndicator={false}>    
         <Text style={Styles.title}> CHECK </Text>  
         <Text style={Styles.text}> cantidad a pagar: {this.state.countPay} </Text> 
         <View style={Styles.margin}>

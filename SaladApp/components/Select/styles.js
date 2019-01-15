@@ -64,7 +64,6 @@ const Styles = StyleSheet.create({
     justifyContent: 'center',
   },
   viewScroll: {
-    height: 900,
     marginTop: '4%',
     marginBottom: 20,
     paddingTop: 4,
@@ -76,8 +75,7 @@ const Styles = StyleSheet.create({
     letterSpacing: 1,
     fontSize: 12,
     textAlign: 'left',
-    marginLeft: '5%',
-    marginRight: '5%',
+    marginLeft: '4%'
   },
   frutName: {
     marginTop: 10,
@@ -86,8 +84,7 @@ const Styles = StyleSheet.create({
     lineHeight: 20,
     letterSpacing: 0.5,
     textAlign: 'left',
-    marginLeft: '5%',
-    marginRight: '5%',
+    marginLeft: '4%'
   },
   contentInfo:{
     flexDirection: 'row',

@@ -39,12 +39,14 @@ class Login extends Component {
           onChangeText={(email) => this.setState({email})}
           placeholder="Email"
           keyboardType= "email-address"
+          returnKeyType="next"
         />
         <TextInput
           style={stylesGeneral.inputText}
           onChangeText={(password) => this.setState({password})}
           placeholder="Password"
           secureTextEntry={true}
+          returnKeyType="go"
           />
         <TouchableOpacity 
           onPress={()=> { this.login() }}
