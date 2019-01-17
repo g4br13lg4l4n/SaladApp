@@ -10,6 +10,8 @@ const TabNavigation = createBottomTabNavigator({
   Home: {
     screen: Home,
     navigationOptions: {
+      activeTintColor:'red',
+      inactiveTintColor:'green',
       showLabel: false,
 			showIcon: true,
       tabBarLabel: 'Home',
@@ -19,15 +21,21 @@ const TabNavigation = createBottomTabNavigator({
   Select: {
     screen: Select,
     navigationOptions: {  
+      activeTintColor:'red',
+      inactiveTintColor:'green',
       showLabel: false,
 			showIcon: true,
       tabBarLabel: 'Choose',
-      tabBarIcon: ({ }) => <Icon.Button name="shopping-basket" color="#FF8C2B" backgroundColor="#FFF"> </Icon.Button>
+      tabBarIcon: ({color = 'red'}) => <Icon.Button name="shopping-basket" color={color} backgroundColor="#FFF"> </Icon.Button>,
+      tabBarOnPress: (navigation) => {  }
     } 
   }, 
   Check: {
     screen: Check,
-    navigationOptions: {   
+    navigationOptions: { 
+      activeTintColor:'red',
+      inactiveTintColor:'green',  
+      showLabel:false,
       tabBarLabel: 'Pay',
       tabBarIcon: ({ }) => <Icon.Button name="heart" color="#FF8C2B" backgroundColor="#FFF"/>
     }
@@ -35,9 +43,12 @@ const TabNavigation = createBottomTabNavigator({
   Profile: {
     screen: Profile,
     navigationOptions: {  
+      activeTintColor:'red',
+      inactiveTintColor:'green',
+      showLabel:false,
       tabBarLabel: 'Profile',
       tabBarIcon: ({ }) => <Icon.Button name="user" color="#FF8C2B" backgroundColor="#FFF"/>
-    }
+    },
   }
 })
 
