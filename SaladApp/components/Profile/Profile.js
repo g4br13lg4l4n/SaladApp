@@ -46,6 +46,10 @@ class Profile extends Component {
           <Text style={Styles.text}> Teléfono: </Text> 
           <Text style={Styles.textf}> {this.state.phone} </Text> 
         </View>
+        <View>
+          <Text>Cerrar sesión</Text>
+        </View>
+
       </View>
     )
   }

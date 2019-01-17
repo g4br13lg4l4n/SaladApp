@@ -1,4 +1,5 @@
-import {View, Button, TextInput, Text, TouchableOpacity, Platform} from 'react-native'
+import {View, TextInput, Text, TouchableOpacity, Platform, ActivityIndicator} from 'react-native'
+import AwesomeAlert from 'react-native-awesome-alerts'
 import {stylesGeneral} from '../StyleGeneral/styles'
 import firebase from 'react-native-firebase'
 import React, {Component} from 'react'
@@ -14,13 +15,41 @@ class Signup extends Component {
       email: '',
       password: '',  
       name: '',
-      phone: ''
+      phone: '',
+      loading: false,
+      showAlert: false
+    }
+    this.showAlert = this.showAlert.bind(this)
+    this.hideAlert = this.hideAlert.bind(this)
+    this.showLoading = this.showLoading.bind(this)
+  }
 
+  showAlert() {
+    this.setState({
+      showAlert: true
+    })
+  }
+
+  hideAlert() {
+    this.setState({
+      showAlert: false
+    })
+  }
+
+
+  showLoading() {
+    if(this.state.loading){
+      return (<View><ActivityIndicator size="small" color="#FFFFFF" /></View>)
+    }else {
+      return (<Text style={stylesGeneral.textButton}> ENTRAR </Text>)
     }
   }
 
   register() {
     if(!this.state.email == '' && !this.state.password == '' && !this.state.phone == '' && !this.state.name == '') {
+      this.setState({
+        loading: true
+      })
       firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
         .then((res) => {
           const data = {
@@ -31,19 +60,22 @@ class Signup extends Component {
           firebase.database().ref('users/' + res.user.uid).set(data, 
             err => {
               if(err) {
-                console.warn('error guarda --->', err)
+                //console.warn('error guarda --->', err)
               }else { 
-                console.warn('guardado')
+                //console.warn('guardado')
               }
             })
 
         }).catch(err => {
           console.warn(err)
         })
+    }else {
+      this.showAlert()
     }
   }
 
   render() {
+    let loading = this.showLoading()
     return (
       <View style={stylesGeneral.background}>
         <Text style={Styles.title}>
@@ -75,8 +107,21 @@ class Signup extends Component {
         <TouchableOpacity 
           onPress={()=> { this.register() }}
           style={stylesGeneral.button}>
-          <Text style={stylesGeneral.textButton}> CREAR CUENTA </Text>
+          {loading}
         </TouchableOpacity>
+        <AwesomeAlert
+          show={this.state.showAlert}
+          showProgress={false}
+          message="Datos incompletos"
+          closeOnTouchOutside={false}
+          closeOnHardwareBackPress={false}
+          showConfirmButton={true}
+          confirmText="Cerrar"
+          confirmButtonColor="#4093f1"
+          onConfirmPressed={() => {
+            this.hideAlert()
+          }}
+        />
       </View>
     )
   }
