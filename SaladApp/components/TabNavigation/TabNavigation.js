@@ -3,7 +3,8 @@ import Icon from 'react-native-vector-icons/FontAwesome'
 import Profile from '../Profile/Profile'
 import React, {Component} from 'react'
 import Select from '../Select/Select'
-import Check from '../Check/Check'
+//import Check from '../Check/Check'
+import CheckMap from '../Check/CheckMap'
 import Home from '../Home/Home'
 
 const TabNavigation = createBottomTabNavigator({
@@ -31,7 +32,7 @@ const TabNavigation = createBottomTabNavigator({
     } 
   }, 
   Check: {
-    screen: Check,
+    screen: CheckMap,
     navigationOptions: { 
       activeTintColor:'red',
       inactiveTintColor:'green',  
