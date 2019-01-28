@@ -9,8 +9,8 @@ import React, {Component} from 'react'
 import Styles from './styles'
 const {width, height} = Dimensions.get('window')
 const ASPECT_RATIO = width / height
-const LATITUDE_DELTA = 0.0922
-const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO
+const LATITUDE_DELTA = 0.00522
+const LONGITUDE_DELTA = (LATITUDE_DELTA * ASPECT_RATIO)
 
 class CheckMap extends Component {
   constructor(props) {
@@ -58,17 +58,18 @@ class CheckMap extends Component {
       const latitude = parseFloat(position.coords.latitude)
       const longitude = parseFloat(position.coords.longitude)
 
-      console.warn(latitude)
+      const coord = {
+        latitude,
+        longitude,
+        latitudeDelta: LATITUDE_DELTA,
+        longitudeDelta: LONGITUDE_DELTA
+      }
 
-      this.setState((state) => {
-        state.initialPosition.latitude = latitude,
-        state.initialPosition.longitude = longitude,
-        state.initialPosition.latitudeDelta = LATITUDE_DELTA,
-        state.initialPosition.longitudeDelta = LONGITUDE_DELTA
+      this.setState({
+        initialPosition: coord 
       })
-      this.setState((state) => {
-        state.markerPosition.latitude = latitude,
-        state.markerPosition.longitude = longitude
+      this.setState({
+        markerPosition: coord
       })
       this.setState({hasPosition: true})
       this.findLocationComponent()
@@ -86,8 +87,7 @@ class CheckMap extends Component {
 
 
   requestCameraPermission() {
-    try {
-      const granted = PermissionsAndroid.request(
+      PermissionsAndroid.request(
         PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
         {
           title: 'Cool Photo App Camera Permission',
@@ -99,14 +99,6 @@ class CheckMap extends Component {
           buttonPositive: 'OK',
         },
       );
-      if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-        console.warn('You can use the camera');
-      } else {
-        console.warn('Camera permission denied');
-      }
-    } catch (err) {
-      console.warn(err);
-    }
   }
 
   componentWillUnmount(){
@@ -139,10 +131,9 @@ class CheckMap extends Component {
           style={Styles.map}
           region={this.state.initialPosition}>
           <MapView.Marker
-            coordinate={this.state.markerPosition}>
-            <View>
-
-            </View>
+            coordinate={this.state.markerPosition}
+            pinColor={'orange'}
+            title="Aquí">
           </MapView.Marker>
         </MapView>
         <ButtonLocation
