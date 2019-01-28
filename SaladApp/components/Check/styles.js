@@ -33,7 +33,7 @@ const Styles = StyleSheet.create({
     paddingBottom: 1,
     backgroundColor: 'white',
     position: 'absolute',
-    marginTop: SCREEN_HEIGHT / 6,
+    marginTop: SCREEN_HEIGHT / 8,
     zIndex: 1,
     marginLeft: '5%',
     marginRight: '5%',
@@ -59,5 +59,19 @@ const Styles = StyleSheet.create({
     width: SCREEN_WIDTH,
     height: SCREEN_HEIGHT
   },
+  acceptPayContent:{
+    height: 60,
+    width: '100%',
+    backgroundColor: '#FF7A27',
+    zIndex: 9,
+    position: 'absolute',
+    bottom: 0
+  },
+  acceptPay: {
+    textAlign: 'center',
+    color: 'white',
+    fontSize: 18,
+    paddingTop: 18
+  }
 })
 module.exports = Styles
