@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, ScrollView, Dimensions} from 'react-native'
+import { View, Text, TouchableOpacity, ScrollView, Dimensions, PermissionsAndroid} from 'react-native'
 import ButtonLocation from './ButtonLocation/ButtonLocation'
 import FindLocation from './FindLocation/FindLocation'
 import {stylesGeneral} from '../StyleGeneral/styles'
@@ -33,6 +33,7 @@ class CheckMap extends Component {
     }
     this.watchLocation = this.watchLocation.bind(this)
     this.findLocationComponent = this.findLocationComponent.bind(this)
+    this.requestCameraPermission = this.requestCameraPermission.bind(this)
   }
 
   CountPay() {
@@ -42,12 +43,14 @@ class CheckMap extends Component {
   }
 
   componentWillMount() {
+    this.requestCameraPermission()
     const countPay = this.CountPay()
     this.setState((state) => {
       state.countPay = countPay
       state.initialPosition.countPay = countPay
     })
     this.watchLocation()
+    
   }
 
   watchLocation(){
@@ -78,6 +81,31 @@ class CheckMap extends Component {
       return (<FindLocation
         position={this.state.initialPosition}
       />)
+    }
+  }
+
+
+  requestCameraPermission() {
+    try {
+      const granted = PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+        {
+          title: 'Cool Photo App Camera Permission',
+          message:
+            'Cool Photo App needs access to your camera ' +
+            'so you can take awesome pictures.',
+          buttonNeutral: 'Ask Me Later',
+          buttonNegative: 'Cancel',
+          buttonPositive: 'OK',
+        },
+      );
+      if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+        console.warn('You can use the camera');
+      } else {
+        console.warn('Camera permission denied');
+      }
+    } catch (err) {
+      console.warn(err);
     }
   }
 
