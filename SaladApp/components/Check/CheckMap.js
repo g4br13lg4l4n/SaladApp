@@ -77,10 +77,15 @@ class CheckMap extends Component {
     })
   }
 
+  clearInputLocation(){
+    
+  }
+
   findLocationComponent(){  
     if(this.state.hasPosition){
       return (<FindLocation
         position={this.state.initialPosition}
+        //clearInputLocation={this.clearInputLocation}
       />)
     }
   }

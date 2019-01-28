@@ -24,6 +24,12 @@ class FindLocation extends Component {
     }.bind(this))
   }
 
+  clearInputLocation(){
+    this.setState({
+      address: ''
+    })
+  }
+
   render() {
     return (
       <View style={Styles.viewAddressContent}>
@@ -33,8 +39,9 @@ class FindLocation extends Component {
               style={Styles.inputTextSearh}
               placeholder="Dirección"
               value={this.state.address}
+              onChangeText={(address) => this.setState({address})}
             /> 
-            <Icon.Button name="pencil" onPress={()=>{  }} color="#FF7A27" backgroundColor="transparent"></Icon.Button> 
+            <Icon.Button name="pencil" onPress={()=>{ this.clearInputLocation() }} color="#FF7A27" backgroundColor="transparent"></Icon.Button> 
         </View> 
       </View> 
     )
